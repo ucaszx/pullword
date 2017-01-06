@@ -22,10 +22,10 @@ def split_word(words):
 def pullword(source="", threshold=0, debug=1):
     payload = {"source":source.encode("utf8"), "param1":threshold, "param2":debug}
     pw = requests.post(post_url, data=payload)
-    print pw.url
+    print (pw.url)
     if pw.status_code != 200:
         raise ServerError("server return %s"%pw.status_code)
-    print pw.content
+    print (pw.content)
     return split_word(pw.content)
 
         
